@@ -6,7 +6,7 @@ app = Flask(__name__)
 CORS(app)  # Permitir CORS en todas las rutas
 
 # Configura tu clave API de OpenAI (reemplaza con tu clave API real)
-client = OpenAI(api_key="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", base_url="https://openrouter.ai/api/v1")
+client = OpenAI(api_key="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", base_url="https://openrouter.ai/api/v1")
 
 @app.route('/generate-cv', methods=['POST'])
 def generate_cv():
@@ -78,4 +78,3 @@ def generate_cv():
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)
-
