@@ -1,12 +1,16 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 from openai import OpenAI
+from dotenv import load_dotenv
+import os
 
 app = Flask(__name__)
 CORS(app)  # Permitir CORS en todas las rutas
 
+load_dotenv()
+
 # Configura tu clave API de OpenAI (reemplaza con tu clave API real)
-client = OpenAI(api_key="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", base_url="https://openrouter.ai/api/v1")
+client = OpenAI(api_key=os.getenv("OPENROUTER_API_KEY"), base_url="https://openrouter.ai/api/v1")
 
 @app.route('/generate-cv', methods=['POST'])
 def generate_cv():
